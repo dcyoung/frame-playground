@@ -1,0 +1,9 @@
+name: frames
+dependencies:
+  - python=3.7
+  - numpy
+  - opencv
+  - pylint
+  pip:
+    - black
+    - moviepy
