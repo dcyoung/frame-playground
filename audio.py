@@ -7,11 +7,14 @@ import numpy as np
 from moviepy.editor import *
 from dummy_frames import generate_video_with_target_times_seconds
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # 1. Get the file path to the included audio example
     # filename = "C:\\Users\\dcyoung\\Music\\Montage Music\\Pink Floyd - Learning To Fly.mp3"
-    filename = "C:\\Users\\dcyoung\\Music\\Montage Music\\Bar-Kays - Too Hot To Stop.mp3"
+    # filename = "C:\\Users\\dcyoung\\Music\\Montage Music\\Bar-Kays - Too Hot To Stop.mp3"
     # filename = librosa.util.example_audio_file()
+    filename = "C:\\Users\\dcyou\\Music\\Downloads\\Polyphia_GOAT_audio.wav"
+
+    print(filename)
 
     # 2. Load the audio as a waveform `y`
     #    Store the sampling rate as `sr`
@@ -20,7 +23,7 @@ if __name__ == '__main__':
     # 3. Run the default beat tracker
     tempo, beat_frames = librosa.beat.beat_track(y=y, sr=sr)
 
-    print('Estimated tempo: {:.2f} beats per minute'.format(tempo))
+    print("Estimated tempo: {:.2f} beats per minute".format(tempo))
 
     # Let's make and display a mel-scaled power (energy-squared) spectrogram
     S = librosa.feature.melspectrogram(y, sr=sr, n_mels=128)
@@ -64,4 +67,4 @@ if __name__ == '__main__':
     videoclip_with_audio = videoclip.set_audio(audioclip)
 
     output_video_file = osp.join("output", "test2.mp4")
-    videoclip_with_audio.write_videofile(output_video_file,  fps=24)
+    videoclip_with_audio.write_videofile(output_video_file, fps=24)
